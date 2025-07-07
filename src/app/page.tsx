@@ -1,8 +1,13 @@
-import Head from "next/head"
+import Image from 'next/image'
 
 type Link = {
   label: string
   href: string
+}
+
+export const metadata = {
+  title: "Oskar Michalak Dev",
+  description: "LinkTree-style minimalist personal page",
 }
 
 const links: Link[] = [
@@ -18,19 +23,18 @@ const avatarPath = "/avatar.jpeg"
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Moje Linki</title>
-        <meta name="description" content="LinkTree-style minimalist page" />
-      </Head>
-
       <main className="min-h-screen flex items-center justify-center bg-base-200 px-4">
         <div className="text-center w-full max-w-md space-y-6">
+
           {/* Avatar */}
-          <div className="flex justify-center">
-            <img
+          <div className="w-24 h-24 relative rounded-full overflow-hidden border-4 border-base-300 shadow-md mx-auto">
+            <Image
               src={avatarPath}
               alt="Avatar"
-              className="w-24 h-24 rounded-full border-4 border-base-300 shadow-md"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              priority
             />
           </div>
 
